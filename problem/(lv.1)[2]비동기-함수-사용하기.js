@@ -20,7 +20,16 @@ async function fetchUsers() {
 }
 
 // TODO: getUsers 함수를 작성하세요.
-async function getUsers() {}
+async function getUsers() {
+  try {
+    let user = await fetchUsers();
+    let name = user.map((e) => e.name);
+    return name;
+  } catch (error) {
+    console.error("에러 발생 -->", error);
+    return [];
+  }
+}
 
 // export를 수정하지 마세요.
 export { getUsers };
